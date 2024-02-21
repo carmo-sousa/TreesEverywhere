@@ -1,0 +1,16 @@
+[default]
+LANGUAGE_CODE="pt-br"
+
+DATABASES__default__ENGINE="django.db.backends.sqlite3"
+DATABASES__default__NAME="./db.sqlite3"
+
+[development]
+DEBUG=true
+
+DATABASES__default__ENGINE="django.db.backends.postgresql"
+DATABASES__default__NAME="@format {env[DB_NAME]}"
+DATABASES__default__USER="@format {env[DB_USER]}"
+DATABASES__default__HOST="@format {env[DB_HOST]}"
+
+
+[production]

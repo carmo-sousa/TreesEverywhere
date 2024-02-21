@@ -5,9 +5,26 @@ description = ""
 authors = ["carmo-sousa <carmosousa20@outlook.com>"]
 readme = "README.md"
 
+# FILE: pyproject.toml
+[tool.bandit]
+exclude_dirs = ["tests",]
+# tests = ["B201", "B301"]
+# skips = ["B101", "B601"]
+
 [tool.poetry.dependencies]
 python = "^3.11"
+django = "^5.0.2"
+dynaconf = "^3.2.4"
+psycopg2-binary = "^2.9.9"
 
+
+[tool.poetry.group.dev.dependencies]
+taskipy = "^1.12.2"
+black = "^24.2.0"
+isort = "^5.13.2"
+ruff = "^0.2.2"
+bandit = {extras = ["toml"], version = "^1.7.7"}
+pre-commit = "^3.6.2"
 
 [build-system]
 requires = ["poetry-core"]
