@@ -4,6 +4,8 @@ services:
     restart: always
     build: .
     tty: true
+    volumes:
+      - ./:/app
     environment:
       EVERYWHERE_ENV: ${ENVIRONMENT:-development}
       DJANGO_SETTINGS_MODULE: ${DJANGO_SETTINGS_MODULE:-everywhere.settings}
