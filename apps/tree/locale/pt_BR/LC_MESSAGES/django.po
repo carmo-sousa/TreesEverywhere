@@ -1,0 +1,74 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-22 17:41-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: apps/tree/models.py:9 apps/tree/models.py:67
+msgid "Location"
+msgstr "Localização"
+
+#: apps/tree/models.py:10
+msgid "Locations"
+msgstr "Localizações"
+
+#: apps/tree/models.py:13
+msgid "Latitude"
+msgstr "Latitude"
+
+#: apps/tree/models.py:19
+msgid "Longitude"
+msgstr "Longitude"
+
+#: apps/tree/models.py:31 apps/tree/models.py:57
+msgid "Tree"
+msgstr "Arvore"
+
+#: apps/tree/models.py:32
+msgid "Trees"
+msgstr "Arvores"
+
+#: apps/tree/models.py:34
+msgid "Name"
+msgstr "Nome"
+
+#: apps/tree/models.py:35
+msgid "Scientific Name"
+msgstr "Nome cientifico"
+
+#: apps/tree/models.py:43
+msgid "Planted tree"
+msgstr "Arvore plantada"
+
+#: apps/tree/models.py:44
+msgid "Planted trees"
+msgstr "Arvores plantadas"
+
+#: apps/tree/models.py:46
+msgid "Age"
+msgstr "Idade"
+
+#: apps/tree/models.py:48
+msgid "Planted At"
+msgstr "Plantada em"
+
+#: apps/tree/models.py:52
+msgid "User"
+msgstr "Usuário"
+
+#: apps/tree/models.py:62
+msgid "Account"
+msgstr "Conta"

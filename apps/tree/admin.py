@@ -2,12 +2,17 @@ from django.contrib import admin
 
 from . import models
 
+
+class TreeAdmin(admin.ModelAdmin):
+    list_display = ("name", "scientific_name")
+
+
 # Register your models here.
-admin.site.register(models.Tree)
+admin.site.register(models.Tree, TreeAdmin)
 
 
 class PlantedTreeAdmin(admin.ModelAdmin):
-    list_display = ("tree", "age", "user", "account", "planted_at")
+    list_display = ("tree", "age", "user", "account", "location", "planted_at")
     list_filter = ("account", "age")
 
     def get_queryset(self, request):
@@ -19,3 +24,4 @@ class PlantedTreeAdmin(admin.ModelAdmin):
 
 
 admin.site.register(models.PlantedTree, PlantedTreeAdmin)
+admin.site.register(models.Location)

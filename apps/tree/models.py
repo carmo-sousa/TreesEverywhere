@@ -1,11 +1,36 @@
+from decimal import Decimal
+
 from django.conf import settings
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 
+class Location(models.Model):
+    class Meta:
+        verbose_name = _("Location")
+        verbose_name_plural = _("Locations")
+
+    latitude = models.DecimalField(
+        _("Latitude"),
+        max_digits=10,
+        decimal_places=6,
+        default=Decimal("0.000000"),
+    )
+    longitude = models.DecimalField(
+        _("Longitude"),
+        max_digits=10,
+        decimal_places=6,
+        default=Decimal("0.000000"),
+    )
+
+    def __str__(self) -> str:
+        return f"{self.latitude}, {self.longitude}"
+
+
 class Tree(models.Model):
     class Meta:
-        verbose_name_plural = "Trees"
+        verbose_name = _("Tree")
+        verbose_name_plural = _("Trees")
 
     name = models.CharField(_("Name"), max_length=100)
     scientific_name = models.CharField(_("Scientific Name"), max_length=100)
@@ -16,7 +41,8 @@ class Tree(models.Model):
 
 class PlantedTree(models.Model):
     class Meta:
-        verbose_name_plural = "Planted Trees"
+        verbose_name = _("Planted tree")
+        verbose_name_plural = _("Planted trees")
 
     age = models.IntegerField(_("Age"))
     planted_at = models.DateTimeField(
@@ -36,6 +62,10 @@ class PlantedTree(models.Model):
         "user.Account",
         verbose_name=_("Account"),
         on_delete=models.CASCADE,
+    )
+
+    location = models.ForeignKey(
+        "tree.Location", verbose_name=_("Location"), on_delete=models.CASCADE
     )
 
     def __str__(self) -> str:

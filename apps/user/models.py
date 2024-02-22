@@ -12,7 +12,8 @@ class NewUser(AbstractUser):
 
 class Profile(models.Model):
     class Meta:
-        verbose_name_plural = "profiles"
+        verbose_name = _("Profile")
+        verbose_name_plural = _("Profiles")
 
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
@@ -30,7 +31,8 @@ class Profile(models.Model):
 
 class Account(models.Model):
     class Meta:
-        verbose_name_plural = "Accounts"
+        verbose_name = _("Account")
+        verbose_name_plural = _("Accounts")
 
     name = models.CharField(_("Name"), max_length=100)
     created = models.DateTimeField(_("Created at"), auto_now=False, auto_now_add=True)
