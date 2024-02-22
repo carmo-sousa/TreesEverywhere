@@ -5,18 +5,18 @@ description = ""
 authors = ["carmo-sousa <carmosousa20@outlook.com>"]
 readme = "README.md"
 
-# FILE: pyproject.toml
+[tool.taskipy.tasks]
+makemigrations = {cmd = "docker exec -it api python manage.py makemigrations", help = "Create migrations"}
+migrate = {cmd = "docker exec -it api python manage.py migrate", help = "Apply migrations"}
+
 [tool.bandit]
 exclude_dirs = ["tests",]
-# tests = ["B201", "B301"]
-# skips = ["B101", "B601"]
 
 [tool.poetry.dependencies]
 python = "^3.11"
 django = "^5.0.2"
 dynaconf = "^3.2.4"
 psycopg2-binary = "^2.9.9"
-
 
 [tool.poetry.group.dev.dependencies]
 taskipy = "^1.12.2"

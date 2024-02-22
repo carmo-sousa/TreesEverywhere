@@ -1,9 +1,9 @@
 services:
   api:
-    hostname: everywhere
     restart: always
     build: .
     tty: true
+    container_name: api
     volumes:
       - ./:/app
     environment:

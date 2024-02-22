@@ -1,16 +1,28 @@
 [default]
 LANGUAGE_CODE="pt-br"
 
+AUTH_USER_MODEL="user.NewUser"
+
 DATABASES__default__ENGINE="django.db.backends.sqlite3"
 DATABASES__default__NAME="./db.sqlite3"
 
 [development]
 DEBUG=true
 
+INSTALLED_APPS = [
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "apps.user",
+    "apps.tree"
+]
+
 DATABASES__default__ENGINE="django.db.backends.postgresql"
 DATABASES__default__NAME="@format {env[DB_NAME]}"
 DATABASES__default__USER="@format {env[DB_USER]}"
 DATABASES__default__HOST="@format {env[DB_HOST]}"
-
 
 [production]
