@@ -1,17 +1,16 @@
 from django.contrib import admin
+from unfold.admin import ModelAdmin
 
 from . import models
 
 
-class TreeAdmin(admin.ModelAdmin):
+@admin.register(models.Tree)
+class TreeAdmin(ModelAdmin):
     list_display = ("name", "scientific_name")
 
 
-# Register your models here.
-admin.site.register(models.Tree, TreeAdmin)
-
-
-class PlantedTreeAdmin(admin.ModelAdmin):
+@admin.register(models.PlantedTree)
+class PlantedTreeAdmin(ModelAdmin):
     list_display = ("tree", "age", "user", "account", "location", "planted_at")
     list_filter = ("account", "age")
 
@@ -23,5 +22,6 @@ class PlantedTreeAdmin(admin.ModelAdmin):
         return qs.filter(user=request.user)
 
 
-admin.site.register(models.PlantedTree, PlantedTreeAdmin)
-admin.site.register(models.Location)
+@admin.register(models.Location)
+class LocationAdmin(ModelAdmin):
+    pass

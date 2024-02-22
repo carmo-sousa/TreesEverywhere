@@ -1,22 +1,23 @@
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from unfold.admin import ModelAdmin
 
 from .models import Account, NewUser, Profile
 
 
-class CustomUserAdmin(UserAdmin):
-    fieldsets = (*UserAdmin.fieldsets, (None, {"fields": ("account",)}))
+@admin.register(NewUser)
+class UserAdmin(BaseUserAdmin, ModelAdmin):
+    pass
 
 
-admin.site.register(NewUser, CustomUserAdmin)
-admin.site.register(Profile)
+@admin.register(Profile)
+class ProfileAdmin(ModelAdmin):
+    pass
 
 
-class AccountAdmin(admin.ModelAdmin):
+@admin.register(Account)
+class AccountAdmin(ModelAdmin):
     list_display = ("name", "created", "active")
     list_filter = ("active",)
     list_editable = ("active",)
     search_fields = ("name",)
-
-
-admin.site.register(Account, AccountAdmin)

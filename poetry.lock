@@ -149,6 +149,20 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-unfold"
+version = "0.20.4"
+description = "Modern Django admin theme for seamless interface development"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "django_unfold-0.20.4-py3-none-any.whl", hash = "sha256:c9901f74b58ae0221d520913b732341e9aec139aa045328ae954201389732e53"},
+    {file = "django_unfold-0.20.4.tar.gz", hash = "sha256:3096849d4c0e3a4897b15107ea3c0e93d2f657f82c5714f7e0e7a514079d2d4b"},
+]
+
+[package.dependencies]
+django = ">=3.2"
+
+[[package]]
 name = "dynaconf"
 version = "3.2.4"
 description = "The dynamic configurator for your Python Project"
@@ -686,4 +700,4 @@ test = ["covdefaults (>=2.3)", "coverage (>=7.2.7)", "coverage-enable-subprocess
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "326294c69d96bcbe15cc24a7122a2e795948a46e5b62d65962db39810a85f321"
+content-hash = "adfaa188c142efb510192d1cef1f646c9c02f168e8c29784ff550c787ee782f5"
