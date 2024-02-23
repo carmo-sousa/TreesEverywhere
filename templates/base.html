@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    {% include "partials/_tailwindcss.html" %}
+    {% block custom_statics %}
+
+    {% endblock %}
+</head>
+
+<body class="flex w-screen h-screen justify-center">
+    <div class="container flex flex-1 flex-col">
+        {% include "partials/_header.html" %}
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+
+</html>

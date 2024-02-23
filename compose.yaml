@@ -1,9 +1,11 @@
 services:
   api:
-    hostname: everywhere
     restart: always
     build: .
     tty: true
+    container_name: api
+    volumes:
+      - ./:/app
     environment:
       EVERYWHERE_ENV: ${ENVIRONMENT:-development}
       DJANGO_SETTINGS_MODULE: ${DJANGO_SETTINGS_MODULE:-everywhere.settings}
