@@ -36,5 +36,5 @@ DB_HOST=database
 - Aplicar as migrações
   - Com poetry: `poetry run task migrate`
     > Se não tiver o poetry executar o comando: `docker exec api python manage.py migrate`
-- Abrir a aplicação: `http://localhost:8080/dashboard`
+- Abrir a aplicação: `http://localhost:8080/`
 - Swagger: `http://localhost:8080/api/schema/swagger-ui/`
