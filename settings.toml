@@ -13,6 +13,7 @@ DEBUG=true
 INSTALLED_APPS = [
     "unfold",
     "rest_framework",
+    "drf_spectacular",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
