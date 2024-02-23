@@ -6,7 +6,9 @@ from django.shortcuts import redirect, render
 from django.views import View
 
 from apps.tree.forms import PlantTreeForm
-from apps.tree.models import Location, PlantedTree, Tree
+from apps.tree.models import Location, PlantedTree
+from apps.tree.services.plant_tree import PlantTreeService
+from apps.tree.services.tree import TreeService
 
 from . import forms
 
@@ -62,28 +64,27 @@ class PlantView(View):
 
     def post(self, request: HttpRequest):
         form = PlantTreeForm(request.POST)
+        plant_service = PlantTreeService()
+        tree_service = TreeService()
 
         if form.is_valid():
-            tree = Tree(
+            tree = tree_service.create(
                 name=form.data.get("name"),
                 scientific_name=form.data.get("scientific_name"),
             )
-            tree.save()
 
-            location = Location(
+            location = Location.objects.create(
                 latitude=form.data.get("latitude"),
                 longitude=form.data.get("longitude"),
             )
 
-            location.save()
-
-            PlantedTree.objects.create(
-                age=1,
-                user=request.user,
+            plant_service.plant_tree(
                 tree=tree,
-                account_id=form.data.get("account"),
                 location=location,
+                user=request.user,
+                account_id=form.data.get("account"),
             )
+
             return redirect(to="index")
 
         return redirect(to="plants-create")
