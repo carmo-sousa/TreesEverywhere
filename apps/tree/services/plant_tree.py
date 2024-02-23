@@ -12,7 +12,7 @@ class PlantTreeService:
             location=location,
         )
 
-    def plant_trees(plants: list[(Tree, Location, int)], user: Any):
+    def plant_trees(self, plants: list[tuple[Tree, Location, int]], user: Any):
         return PlantedTree.objects.bulk_create(
             [
                 PlantedTree(
