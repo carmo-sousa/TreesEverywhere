@@ -7,7 +7,15 @@ from .models import Account, NewUser, Profile
 
 @admin.register(NewUser)
 class UserAdmin(BaseUserAdmin, ModelAdmin):
-    pass
+    fieldsets = (
+        *BaseUserAdmin.fieldsets,
+        (
+            None,
+            {
+                "fields": ("account",),
+            },
+        ),
+    )
 
 
 @admin.register(Profile)

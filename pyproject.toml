@@ -18,6 +18,9 @@ django = "^5.0.2"
 dynaconf = "^3.2.4"
 psycopg2-binary = "^2.9.9"
 django-unfold = "^0.20.4"
+djangorestframework = "^3.14.0"
+markdown = "^3.5.2"
+django-filter = "^23.5"
 
 [tool.poetry.group.dev.dependencies]
 taskipy = "^1.12.2"

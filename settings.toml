@@ -1,5 +1,6 @@
 [default]
 LANGUAGE_CODE="pt-br"
+LOGIN_URL = "/login"
 
 AUTH_USER_MODEL="user.NewUser"
 
@@ -11,6 +12,7 @@ DEBUG=true
 
 INSTALLED_APPS = [
     "unfold",
+    "rest_framework",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

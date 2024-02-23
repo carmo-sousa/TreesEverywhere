@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Dashboard
+{% endblock title %}
+
+{% block content %}
+    <main class="flex mt-16 mb-4 rounded p-4 border flex-col h-full">
+        <h1 class="text-3xl mb-2">Arvores plantadas</h1>
+        <div class="border border-top"></div>
+        <div class="flex flex-wrap gap-4 pt-4 px-4">
+            {% for planted_tree in planted_trees %}
+                <div>
+                    <div>Nome: {{planted_tree.tree}}</div>
+                    <div>Usuário: {{planted_tree.user}}</div>
+                    <div>Conta: {{planted_tree.account}}</div>
+                    <div>Localização: {{planted_tree.location}}</div>
+                </div>
+            {% empty %}
+                <div class="flex h-full justify-center items-center">
+                    <p>Você ainda não plantou uma arvore.</p>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+{% endblock content %}
