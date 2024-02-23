@@ -33,6 +33,7 @@ DB_HOST=database
 ```
 
 - Executar o docker compose: `docker compose --env-file .env up --build -d`
+- Executar os testes: `docker exec api python manage.py test apps`
 - Aplicar as migrações
   - Com poetry: `poetry run task migrate`
     > Se não tiver o poetry executar o comando: `docker exec api python manage.py migrate`
