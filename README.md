@@ -32,6 +32,18 @@ DB_NAME=everywhere
 DB_HOST=database
 ```
 
+- Criar um arquivo `.secrets.toml` com os dados
+
+```toml
+[default]
+
+[development]
+DATABASES__default__PASSWORD="@format {env[DB_PASSWORD]}"
+
+[production]
+
+```
+
 - Executar o docker compose: `docker compose --env-file .env up --build -d`
 - Executar os testes: `docker exec api python manage.py test apps`
 - Aplicar as migrações
