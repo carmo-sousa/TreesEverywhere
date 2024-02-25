@@ -38,6 +38,8 @@ DB_HOST=database
 [default]
 
 [development]
+
+SECRET_KEY="em=vwlbariuk1a(9zud%x+*695dtx+gth))=**4+2luc++^$4="
 DATABASES__default__PASSWORD="@format {env[DB_PASSWORD]}"
 
 [production]
