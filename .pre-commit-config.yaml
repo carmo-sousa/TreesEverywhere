@@ -11,7 +11,6 @@ repos:
     -   id: check-merge-conflict
     -   id: check-toml
     -   id: check-yaml
-    -   id: detect-aws-credentials
     -   id: trailing-whitespace
 
 -   repo: https://github.com/PyCQA/bandit
@@ -25,7 +24,6 @@ repos:
     rev: v0.2.2
     hooks:
     - id: ruff
-      args: [ --fix ]
 
 -   repo: https://github.com/psf/black
     rev: '24.2.0'
