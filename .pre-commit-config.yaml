@@ -11,7 +11,6 @@ repos:
     -   id: check-merge-conflict
     -   id: check-toml
     -   id: check-yaml
-    -   id: detect-aws-credentials
     -   id: trailing-whitespace
 
 -   repo: https://github.com/PyCQA/bandit

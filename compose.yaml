@@ -1,37 +1,38 @@
 services:
   api:
-    restart: always
-    build: .
+    container_name: everywhere-api
     tty: true
-    container_name: api
+    restart: always
+    build:
+      context: .
     volumes:
       - ./:/app
     environment:
       EVERYWHERE_ENV: ${ENVIRONMENT:-development}
       DJANGO_SETTINGS_MODULE: ${DJANGO_SETTINGS_MODULE:-everywhere.settings}
     ports:
-      - "8080:8080"
+      - 8080:8080
     depends_on:
-      database:
+      db:
         condition: service_healthy
-
-  database:
+  db:
     image: postgres
+    container_name: everywhere-database
     restart: always
-    tty: true
+    user: postgres
+    volumes:
+      - db-data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_USER: ${DB_USER}
       POSTGRES_DB: ${DB_NAME}
-    volumes:
-      - everywhere-data:/var/lib/postgresql/data
+    expose:
+      - 5432
     healthcheck:
-      test: ["CMD", "pg_isready", "-h", "localhost", "-U", "${DB_USER}"]
-      interval: 1m30s
-      timeout: 10s
-      retries: 3
-      start_period: 40s
-      start_interval: 5s
+      test: [ "CMD", "pg_isready" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 volumes:
-  everywhere-data:
+  db-data:
